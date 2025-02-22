@@ -21,7 +21,7 @@ function JobDetails() {
     const userSkills = useProfileStore((state) => state.skills);
 
       // Calculate match score
-    //   @ts-ignore
+    //   @ts-expect-error
   const matchScore = calculateMatchScore(userSkills, job?.requiredSkills);
 
   // Match score color coding
