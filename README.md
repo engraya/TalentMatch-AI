@@ -5,7 +5,7 @@ TalentMatchAI is an AI-powered job matching platform that helps job seekers find
 ## 📋 <a name="table">Table of Contents</a>
 
 1. ⚙️ [Tech Stack](#tech-stack)
-2. 🔋 [Setuo](#features)
+2. 🔋 [Setup](#features)
 3. 🤸 [Usage](#quick-start)
 4. 🚀 [Deployment](#more)
 5. 👉 [Contributing](#more)
@@ -14,6 +14,7 @@ TalentMatchAI is an AI-powered job matching platform that helps job seekers find
 
 ## <a name="tech-stack">⚙️ Tech Stack</a>
 
+- React.js - Javascript Library for building User Interfaces.
 - Next.js - React framework for server-side rendering, static site generation, and routing.
 - TypeScript - A superset of JavaScript that adds static typing.
 - Tailwind CSS - Utility-first CSS framework for rapidly building custom designs.
@@ -82,6 +83,9 @@ npm run dev
 
 Open [http://localhost:3000](http://localhost:3000) in your browser to view the project.
 
+
+**Usage**
+
 - Clone & Run - Clone or fork in to your dev environemnt.
 - Build Your Profile - Add skills, experience, and preferences.
 - Search & Apply - Use AI-powered job recommendations and apply instantly.
@@ -102,9 +106,9 @@ Vercel will automatically build and deploy the app whenever changes are pushed t
 **Contributing**
 We welcome contributions to TalentMatch_AI! If you'd like to contribute:
 
-Fork the repository.
-Create a new branch (git checkout -b feature/your-feature).
-Make your changes.
-Commit your changes (git commit -am 'Add new feature').
-Push to the branch (git push origin feature/your-feature).
-Open a pull request.
+- Fork the repository.
+- Create a new branch (git checkout -b feature/your-feature).
+- Make your changes.
+- Commit your changes (git commit -am 'Add new feature').
+- Push to the branch (git push origin feature/your-feature).
+- Open a pull request.
