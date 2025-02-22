@@ -25,7 +25,7 @@ export const Sidebar = ({ showSideBar }: SideBarProps) => {
        <Image src={logo} height={40} width={40} alt="logo" className="flex items-center justify-center"/>
          <span className="flex items-center justify-center font-urban text-xl font-bold text-gray-900">
          <h1
-              className="bg-gradient-to-r from-teal-600 via-sky-400 to-cyan-500 bg-clip-text text-xl font-extrabold text-transparent">
+           className="bg-gradient-to-r from-teal-600 via-sky-700 to-cyan-500 bg-clip-text text-xl font-extrabold text-transparent">
                 {siteConfig.name}
             </h1>
           </span>

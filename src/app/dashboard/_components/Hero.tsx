@@ -1,6 +1,7 @@
 import React from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
+import Github from './Github'
 function Hero() {
   return (
     <>
@@ -32,7 +33,14 @@ function Hero() {
     </div>
   </div>
   <div className="flex h-screen items-center justify-center px-10 mt-20">
+  
+  
+
+
     <div className="max-w-full flex-shrink-0 px-4 text-center lg:mx-0 lg:max-w-3xl lg:pt-8">
+      <div className='flex justify-center items-center mx-auto mb-3'>
+      <Github/>
+      </div>
     <h1 className="mx-auto max-w-4xl font-display text-2xl font-bold tracking-normal text-white dark:text-gray-300 sm:text-7xl">
     Land Your Dream Job Faster with AI-Powered {" "}
   <span className="relative whitespace-nowrap text-white-600 dark:text-gray-300">Matching with</span>
