@@ -1,6 +1,3 @@
-import { User } from "@prisma/client";
-import { Icons } from "@/components/shared/icons";
-
 export type SiteConfig = {
   name: string;
   description: string;
@@ -23,74 +20,88 @@ export type NavItem = {
   icon?: keyof typeof Icons;
 };
 
-export type MainNavItem = NavItem;
+export interface Contact {
+  email: string;
+  phone: string;
+  address: string;
+  twitter: string;
+}
 
-export type MarketingConfig = {
-  mainNav: MainNavItem[];
-};
+export interface Skill {
+  name: string;
+}
 
-export type SidebarNavItem = {
-  title: string;
-  items: NavItem[];
-  authorizeOnly?: UserRole;
-  icon?: keyof typeof Icons;
-};
+export interface Education {
+  year: number;
+  degree: string;
+  institution: string;
+  percentage?: number;
+}
 
-export type DocsConfig = {
-  mainNav: MainNavItem[];
-  sidebarNav: SidebarNavItem[];
-};
+export interface Experience {
+  company: string;
+  role: string;
+  duration: string;
+  responsibilities: string[];
+}
 
-// subcriptions
-export type SubscriptionPlan = {
-  title: string;
+export interface Project {
+  name: string;
   description: string;
-  benefits: string[];
-  limitations: string[];
-  prices: {
-    monthly: number;
-    yearly: number;
-  }
+}
+
+export interface Profile {
+  name: string;
+  role: string;
+  profileImage: StaticImageData;
+  about: string;
+  contact: Contact;
+  skills: Skill[];
+  education: Education[];
+  experience: Experience[];
+  projects: Project[];
+}
+
+export interface Job {
+  id: number;
+  title: string;
+  company: string;
+  salary: string;
+  location: string;
+  requiredSkills: string[];
+}
+
+export type JobType = {
+  id: number;
+  title: string;
+  company: string;
+  location: string;
+  salary: string;
+  requiredSkills: string[];
+  matchScore: number;
 };
 
-export type UserSubscriptionPlan = SubscriptionPlan &
-  Pick<User, "stripeCustomerId" | "stripeSubscriptionId" | "stripePriceId"> & {
-    stripeCurrentPeriodEnd: number;
-    isPaid: boolean;
-    interval: "month" | "year" | null;
-    isCanceled?: boolean;
+export interface ProfileState {
+    skills: string[];
+    appliedJobs: Job[];
+    applyForJob: (job: Job) => void;
+  }
+
+export type HeaderProps = {
+    setShowSideBar: React.Dispatch<React.SetStateAction<boolean>>;
+    showSideBar: boolean;
   };
 
-// compare plans
-export type ColumnType = string | boolean | null;
-export type PlansRow = { feature: string; tooltip?: string } & {
-  [key in (typeof plansColumns)[number]]: ColumnType;
-};
+export type JobCardProps = {
+    job: JobType;
+  };
 
-// landing sections
-export type InfoList = {
-  icon: keyof typeof Icons;
-  title: string;
-  description: string;
-};
+export type SideBarProps = {
+    showSideBar: boolean;
+    setShowSideBar: React.Dispatch<React.SetStateAction<boolean>>;
+  };
 
-export type InfoLdg = {
-  title: string;
-  image: string;
-  description: string;
-  list: InfoList[];
-};
 
-export type FeatureLdg = {
-  title: string;
-  description: string;
-  link: string;
-  icon: keyof typeof Icons;
-};
 
-export type TestimonialType = {
-  name: string;
-  job: string;
-  image: string;
-  review: string;
-};
+
+

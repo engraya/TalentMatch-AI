@@ -5,21 +5,7 @@ import { FaLocationDot } from "react-icons/fa6";
 import { TbScoreboard } from "react-icons/tb";
 import { useProfileStore } from "@/store/store";
 import { calculateMatchScore } from "@/config/utils";
-
-export type Job = {
-    id: number;
-    title: string;
-    company: string;
-    location: string;
-    salary: string;
-    requiredSkills: string[];
-    matchScore: number;
-  };
-
-  type JobCardProps = {
-    job: Job;
-  };
-  
+import { JobCardProps } from '@/types';
 
 
 
@@ -40,11 +26,11 @@ function JobCard({job} : JobCardProps) {
 
 
   return (
-    <div className="rounded overflow-hidden shadow-lg flex flex-col transform transition duration-500 hover:scale-105">
+    <div className="rounded-lg overflow-hidden bg-white shadow-lg flex flex-col transform transition duration-500 hover:scale-105">
   <div className="relative">
       <div className="hover:bg-transparent transition duration-300 absolute bottom-0 top-0 right-0 left-0 bg-gray-900 opacity-25">
       </div>
-    <div className="absolute top-0 right-0 bg-teal-500 text-white px-2 py-1 m-2 rounded-md text-sm font-semibold">
+    <div className="absolute top-0 right-0 bg-green-500 text-white px-2 py-1 m-2 rounded-md text-xs font-medium">
         New
       </div>
   </div>
@@ -67,14 +53,14 @@ function JobCard({job} : JobCardProps) {
   {job?.requiredSkills?.map((skill, index) => (
     <span
       key={index}
-      className="inline-block bg-gray-200 rounded-full px-2 py-1 text-sm font-semibold text-gray-700 mr-2"
+      className="inline-block bg-gray-200 rounded-full px-2 py-1 text-xs font-normal text-gray-700 mr-2"
     >
       {skill}
     </span>
   ))}
 </div>
 
-  <div className="px-6 py-3 flex flex-row items-center justify-between bg-gray-100">
+  <div className="px-6 py-3 flex flex-row items-center justify-between bg-gray-200">
     <span className="py-1 text-xs font-regular text-gray-900 mr-1 flex flex-row items-center">
         <TbScoreboard />
      <span className={`shrink-0 rounded-full px-3 ml-1 font-mono text-md font-medium tracking-tight text-white ${getScoreColor(matchScore)}`}>

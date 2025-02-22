@@ -3,12 +3,9 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { siteConfig } from '../../../../config/site';
 import { logo } from '@/src/assets';
+import { HeaderProps } from '@/types';
 
-type Props = {
-    setShowSideBar: React.Dispatch<React.SetStateAction<boolean>>;
-    showSideBar: boolean;
-  };
-function DashboardHeader({ setShowSideBar, showSideBar }: Props) {
+function DashboardHeader({ setShowSideBar, showSideBar }: HeaderProps) {
 
 
   return (

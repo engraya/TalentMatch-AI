@@ -1,34 +1,18 @@
 "use client";
 
 import { cn } from "@/lib/utils";
-import { logo, profile, jobs } from "@/src/assets";
+import { logo } from "@/src/assets";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { siteConfig } from "@/config/site";
-const menuList = [
-  {
-    name: "Jobs",
-    icon: jobs,
-    path: "/dashboard",
-  },
-  {
-    name: "Profile",
-    icon: profile,
-    path: "/dashboard/profile",
-  }
-];
-
-type Props = {
-  showSideBar: boolean;
-  setShowSideBar: React.Dispatch<React.SetStateAction<boolean>>;
-};
+import { SideBarProps } from "@/types";
+import { menuList } from "@/config/menu";
 
 
-export const Sidebar = ({ showSideBar }: Props) => {
+export const Sidebar = ({ showSideBar }: SideBarProps) => {
   const path = usePathname();
 
-  console.log("path", path);
   return (
     <div
     className={`fixed left-0 top-0 z-50 flex h-full flex-col justify-between overflow-y-auto transition-transform ${
@@ -54,8 +38,8 @@ export const Sidebar = ({ showSideBar }: Props) => {
             href={menu.path}
             key={menu.name}
             className={cn(
-              "mb-2 flex cursor-pointer items-center gap-2 whitespace-nowrap rounded-lg p-3 font-bold hover:text-gray-900",
-              path === menu.path && "bg-gray-700 border-teal-500 text-teal-100 hover:bg-teal-50 hover:text-teal-700 group border-l-4 px-3 py-2 flex items-center text-sm font-medium"
+              "mb-2 flex cursor-pointer items-center gap-2 whitespace-nowrap hover:bg-gray-400 rounded-lg p-3 font-bold hover:text-gray-900",
+              path === menu.path && "bg-gray-700 border-teal-500 text-teal-100  group border-l-4 px-3 py-2 flex items-center text-sm font-medium"
             )}
           >
             <Image src={menu.icon} width={30} height={30} alt="menu-icon"/>

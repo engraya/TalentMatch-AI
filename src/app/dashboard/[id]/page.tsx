@@ -9,6 +9,8 @@ import { useParams, useRouter } from "next/navigation";
 import { useProfileStore } from "@/store/store";
 import { calculateMatchScore } from "@/config/utils";
 
+
+  
 function JobDetails() {
 
     const router = useRouter();
@@ -31,6 +33,14 @@ function JobDetails() {
 
    // Handle job application
    const applyForJob = async () => {
+    if (!job) {
+        toast.error("Job not found!", {
+          position: "top-center",
+          autoClose: 5000,
+        });
+        return;
+      }
+    
     if (matchScore < 50) {
         toast.error(`Your match score is low 😞. Consider learning: ${job?.requiredSkills.filter(skill => !userSkills.includes(skill)).join(", ")}`, {
             position: "top-center",
@@ -47,6 +57,8 @@ function JobDetails() {
     setIsApplying(true);
     await new Promise((resolve) => setTimeout(resolve, 3000)); // Mock API delay
     setIsApplying(false);
+      // Save the job in Zustand store
+    useProfileStore.getState().applyForJob(job);
     toast.success('Application submitted successfully ❤️‍🔥🎉', {
         position: "top-center",
         autoClose: 5000,
@@ -57,6 +69,7 @@ function JobDetails() {
         progress: undefined,
         theme: "light"
         });
+        router.push('/dashboard/applications');
   };
 
 

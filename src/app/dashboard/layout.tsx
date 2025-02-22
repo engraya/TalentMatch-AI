@@ -4,6 +4,8 @@ import React from "react";
 import { Sidebar } from "./_components/sidebar";
 import { useState } from "react"
 import DashboardHeader from "./_components/DashboardHeader";
+import Footer from "./_components/Footer";
+
 
 const DashboardLayout = ({
   children,
@@ -24,9 +26,10 @@ const DashboardLayout = ({
       onClick={() => setShowSideBar(false)}
         ></div>
       <DashboardHeader setShowSideBar={setShowSideBar} showSideBar={showSideBar}/>
-      <div className="mt-12 h-fit bg-gray-50 pb-5 md:ml-64 md:mt-0">
+      <div className="mt-12 h-fit bg-gray-50 pb-5 md:ml-64 md:mt-0 min-h-screen">
         {children}
       </div>
+      <Footer/>
     </div>
     </div>
   );

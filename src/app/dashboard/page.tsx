@@ -2,16 +2,8 @@ import React from 'react'
 import JobCard from './_components/JobCard'
 import jobs from '@/data/jobs'
 import Link from 'next/link'
+import { JobType } from '@/types'
 
-export type Job = {
-  id: number;
-  title: string;
-  company: string;
-  location: string;
-  salary: string;
-  requiredSkills: string[];
-  matchScore: number;
-};
 
 
 function DashboardPage() {
@@ -32,11 +24,11 @@ function DashboardPage() {
     </svg>
     <a href="#" className="font-semibold inline-block">Job Listings</a>
   </div>
-  <a href="#">See All</a>
+  <Link href="/dashboard/applications" className='text-emerald-700 font-semibold cursor-pointer text-lg'>My Applications</Link>
 </div>
 
-<div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 p-10 md:px-20">
-      {jobs.map((job: Job) => (
+<div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 p-6 md:px-4">
+      {jobs.map((job: JobType) => (
         <Link href={`/dashboard/${job.id}`} key={job.id}>
             <JobCard key={job.id} job={job} />
           </Link>

@@ -1,47 +1,5 @@
 import { passport } from "@/src/assets";
-import { StaticImageData } from "next/image";
-
-export interface Contact {
-  email: string;
-  phone: string;
-  address: string;
-  twitter: string;
-}
-
-export interface Skill {
-  name: string;
-}
-
-export interface Education {
-  year: number;
-  degree: string;
-  institution: string;
-  percentage?: number;
-}
-
-export interface Experience {
-  company: string;
-  role: string;
-  duration: string;
-  responsibilities: string[];
-}
-
-export interface Project {
-  name: string;
-  description: string;
-}
-
-export interface Profile {
-  name: string;
-  role: string;
-  profileImage: StaticImageData;
-  about: string;
-  contact: Contact;
-  skills: Skill[];
-  education: Education[];
-  experience: Experience[];
-  projects: Project[];
-}
+import {  Profile  } from "@/types";
 
 export const profile: Profile = {
   name: "Ahmad Yakubu Ahmad",
@@ -52,8 +10,8 @@ export const profile: Profile = {
 
   contact: {
     email: "engrahmadaya@gmail.com",
-    phone: "+1 (650) 555-1234",
-    address: "San Francisco, CA, USA",
+    phone: "+234 (81) 49-08-7802",
+    address: "Damaturu, Yobe, Nigeria",
     twitter: "engrahmadaya21",
   },
 
@@ -70,6 +28,14 @@ export const profile: Profile = {
     { name: "Kubernetes" },
     { name: "AWS" },
     { name: "Machine Learning" },
+    { name: "Artificial Intelligence" },
+    { name: "AWS" },
+    { name: "React Native" },
+    { name: "Agile" },
+    { name: "Scrum" },
+    { name: "Python" },
+    { name: "Django" },
+    { name: "PostgreSQL" },
   ],
 
   education: [
