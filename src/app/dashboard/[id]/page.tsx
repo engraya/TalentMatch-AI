@@ -88,8 +88,8 @@ function JobDetails() {
   <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
     <div className="flex flex-col md:flex-row -mx-4">
       <div className="md:flex-1 px-4">
-        <div className="h-[460px] rounded-lg bg-gray-300 dark:bg-gray-700 mb-4">
-          <Image className="w-full h-full object-cover" src={jobImage} alt="Job Image" width={500} height={500}/>
+        <div className="md:h-[460px] rounded-lg bg-gray-300 dark:bg-gray-700 mb-4">
+          <Image className="w-full md:h-full md:object-cover" src={jobImage} alt="Job Image" width={500} height={500}/>
         </div>
         <div className="flex -mx-2 mb-4">
           <div className="w-1/2 px-2">
@@ -115,10 +115,21 @@ function JobDetails() {
         <p className="text-gray-600 dark:text-gray-300 text-sm mb-4">
             {job.company}
         </p>
-        <div className="flex mb-4">
+        <div className="hidden md:flex mb-4">
           <div className="mr-4">
-            <span className="font-bold text-gray-700 dark:text-gray-300">Salary Range:</span>
-            <span className="text-gray-600 dark:text-gray-300">{job.salary}</span>
+            <span className="font-bold whitespace-nowrap text-lg text-gray-700 dark:text-gray-300">Salary Range:</span>
+            <span className="text-gray-600 text-sm whitespace-nowrap font-semibold dark:text-gray-300">{job.salary}</span>
+          </div>
+          <div className="sapce-x-3">
+            <span className="font-bold text-lg text-gray-700 dark:text-gray-300">Location:</span>
+            <span className="text-gray-600 font-semibold dark:text-gray-300">{job.location}</span>
+          </div>
+        </div>
+
+        <div className="sm:hidden flex flex-col gap-3 mb-4">
+          <div className="mr-4 gap-2">
+            <span className="font-bold whitespace-nowrap text-gray-700 dark:text-gray-300">Salary Range:</span>
+            <span className="text-gray-600 text-md whitespace-nowrap font-normal dark:text-gray-300">{job.salary}</span>
           </div>
           <div>
             <span className="font-bold text-gray-700 dark:text-gray-300">Location:</span>
@@ -141,7 +152,7 @@ function JobDetails() {
           <div className="flex items-center mt-2">
           {job.requiredSkills.map((skill, index) => (
             <button key={index}
-                className={`py-2 px-4 rounded-full font-bold mr-2 ${userSkills.includes(skill) ? "bg-green-300 dark:bg-green-700 text-gray-900" : "bg-gray-300 dark:bg-gray-700 text-gray-700 dark:text-white"}`}>
+                className={`py-2 px-1 md:px-4 text-xs md:text-md rounded-full font-semibold mr-2 ${userSkills.includes(skill) ? "bg-green-300 dark:bg-green-700 text-gray-900" : "bg-gray-300 dark:bg-gray-700 text-gray-700 dark:text-white"}`}>
                 {skill}
             </button>
           ))}
