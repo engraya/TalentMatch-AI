@@ -10,9 +10,7 @@ function Github() {
         </path>
       </svg>
     </div>
-
     <div className="flex items-center">
-
       <div className="h-4 w-4 border-y-8 border-l-0 border-r-8 border-solid border-gray-100 border-y-transparent" />
       <Link href={siteConfig.links.github} target='_blank'>
         <div className="flex h-10 items-center rounded-md cursor-pointer bg-gray-100 px-4 font-medium">
