@@ -1,6 +1,10 @@
+"use client"
+
 import React from 'react'
 import { FaLocationDot } from "react-icons/fa6";
 import { TbScoreboard } from "react-icons/tb";
+import { useProfileStore } from "@/store/store";
+import { calculateMatchScore } from "@/config/utils";
 
 export type Job = {
     id: number;
@@ -20,6 +24,21 @@ export type Job = {
 
 
 function JobCard({job} : JobCardProps) {
+
+      const userSkills = useProfileStore((state) => state.skills);
+  
+        // Calculate match score
+    const matchScore = calculateMatchScore(userSkills, job?.requiredSkills);
+  
+    // Match score color coding
+    const getScoreColor = (score: number) => {
+      if (score >= 80) return "bg-green-500";
+      if (score >= 50) return "bg-yellow-500";
+      return "bg-red-500";
+    };
+  
+
+
   return (
     <div className="rounded overflow-hidden shadow-lg flex flex-col transform transition duration-500 hover:scale-105">
   <div className="relative">
@@ -31,7 +50,7 @@ function JobCard({job} : JobCardProps) {
   </div>
   <div className="px-6 py-4 mb-auto">
   <h2 className="text-md md:text-xl font-bold mb-2 text-gray-800">{job.title}</h2>
-    <p className="text-gray-500 text-sm">
+    <p className="text-gray-500 text-md italic font-medium">
       {job.company}
     </p>
     
@@ -45,7 +64,7 @@ function JobCard({job} : JobCardProps) {
 </div>
 
   <div className="px-2 py-2 space-y-2">
-  {job.requiredSkills.map((skill, index) => (
+  {job?.requiredSkills?.map((skill, index) => (
     <span
       key={index}
       className="inline-block bg-gray-200 rounded-full px-2 py-1 text-sm font-semibold text-gray-700 mr-2"
@@ -58,7 +77,9 @@ function JobCard({job} : JobCardProps) {
   <div className="px-6 py-3 flex flex-row items-center justify-between bg-gray-100">
     <span className="py-1 text-xs font-regular text-gray-900 mr-1 flex flex-row items-center">
         <TbScoreboard />
-      <span className="shrink-0 rounded-full bg-red-500 px-3 ml-1 font-mono text-md font-medium tracking-tight text-white">{job.matchScore}</span>
+     <span className={`shrink-0 rounded-full px-3 ml-1 font-mono text-md font-medium tracking-tight text-white ${getScoreColor(matchScore)}`}>
+      {matchScore}%
+      </span>
     </span>
     <span className="py-1 text-xs font-regular text-gray-900 mr-1 flex flex-row items-center">
         <FaLocationDot />

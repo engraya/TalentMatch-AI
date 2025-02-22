@@ -1,21 +1,70 @@
 "use client"
 
-import React from 'react'
+import React, { useState } from "react";
 import { jobImage } from '@/src/assets'
 import Image from 'next/image'
 import jobs from '@/data/jobs';
+import { toast } from 'react-toastify';
 import { useParams, useRouter } from "next/navigation";
+import { useProfileStore } from "@/store/store";
+import { calculateMatchScore } from "@/config/utils";
 
 function JobDetails() {
 
     const router = useRouter();
     const params = useParams(); 
+    const [isApplying, setIsApplying] = useState(false);
+    const job = jobs.find((job) => job.id === Number(params.id));
+
+    const userSkills = useProfileStore((state) => state.skills);
+
+      // Calculate match score
+    //   @ts-ignore
+  const matchScore = calculateMatchScore(userSkills, job?.requiredSkills);
+
+  // Match score color coding
+  const getScoreColor = (score: number) => {
+    if (score >= 80) return "bg-green-500";
+    if (score >= 50) return "bg-yellow-500";
+    return "bg-red-500";
+  };
+
+   // Handle job application
+   const applyForJob = async () => {
+    if (matchScore < 50) {
+        toast.error(`Your match score is low 😞. Consider learning: ${job?.requiredSkills.filter(skill => !userSkills.includes(skill)).join(", ")}`, {
+            position: "top-center",
+            autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick: false,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "light"
+            });
+      return;
+    }
+    setIsApplying(true);
+    await new Promise((resolve) => setTimeout(resolve, 3000)); // Mock API delay
+    setIsApplying(false);
+    toast.success('Application submitted successfully ❤️‍🔥🎉', {
+        position: "top-center",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: false,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light"
+        });
+  };
+
 
     const handleBackToJobs = () => {
       router.push('/dashboard');
     }    
 
-    const job = jobs.find((job) => job.id === Number(params.id));
+  
 
     if (!job) {
       return <div className="text-center text-red-500">Job not found</div>;
@@ -34,7 +83,17 @@ function JobDetails() {
             <button onClick={handleBackToJobs} className="w-full bg-gray-900 dark:bg-gray-600 text-white py-2 px-4 rounded-full font-bold hover:bg-gray-800 dark:hover:bg-gray-700">Back to Jobs</button>
           </div>
           <div className="w-1/2 px-2">
-            <button className="w-full bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-white py-2 px-4 rounded-full font-bold hover:bg-gray-300 dark:hover:bg-gray-600">Apply</button>
+          <button
+            onClick={applyForJob}
+            disabled={isApplying}
+            className="w-full flex justify-center items-center bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-white py-2 px-4 rounded-full font-bold hover:bg-gray-300 dark:hover:bg-gray-600 disabled:opacity-50 disabled:cursor-not-allowed"
+            >
+            {isApplying ? (
+                <div className="w-5 h-5 border-2 border-gray-900 border-t-transparent rounded-full animate-spin"></div>
+            ) : (
+                "Apply"
+            )}
+          </button>
           </div>
         </div>
       </div>
@@ -56,15 +115,23 @@ function JobDetails() {
         <div className="mb-4">
           <span className="font-bold text-gray-700 dark:text-gray-300">Match Score:</span>
           <div className="flex items-center mt-2">
-      <span className="shrink-0 rounded-full bg-red-500 px-3 ml-1 font-mono text-md font-medium tracking-tight text-white">{job.matchScore}</span>
+          <span className={`shrink-0 rounded-full px-3 ml-1 font-mono text-md font-medium tracking-tight text-white ${getScoreColor(matchScore)}`}>
+              {matchScore}%
+           </span>
+          </div>
+          <div className="w-full bg-gray-300 rounded-full h-4 mt-2">
+                  <div className={`h-4 rounded-full ${getScoreColor(matchScore)}`} style={{ width: `${matchScore}%` }}></div>
           </div>
         </div>
         <div className="mb-4">
           <span className="font-bold text-gray-700 dark:text-gray-300">Required Skills</span>
           <div className="flex items-center mt-2">
           {job.requiredSkills.map((skill, index) => (
-                <button key={index} className="bg-gray-300 dark:bg-gray-700 text-gray-700 dark:text-white py-2 px-4 rounded-full font-bold mr-2 hover:bg-gray-400 dark:hover:bg-gray-600">{skill}</button>
-            ))}
+            <button key={index}
+                className={`py-2 px-4 rounded-full font-bold mr-2 ${userSkills.includes(skill) ? "bg-green-300 dark:bg-green-700 text-gray-900" : "bg-gray-300 dark:bg-gray-700 text-gray-700 dark:text-white"}`}>
+                {skill}
+            </button>
+          ))}
           </div>
         </div>
       </div>

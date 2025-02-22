@@ -81,8 +81,8 @@ function ProfilePage() {
                 <div className="flex flex-col">
                   {profile.experience.map((exp, index) => (
                     <div key={index} className="flex flex-col mt-8">
-                      <p className="text-lg font-bold text-gray-700">{exp.company} | {exp.position}</p>
-                      <p className="font-semibold text-sm text-gray-700">{exp.years}</p>
+                      <p className="text-lg font-bold text-gray-700">{exp.company} | {exp.role}</p>
+                      <p className="font-semibold text-sm text-gray-700">{exp.duration}</p>
                       <p className="font-semibold text-sm text-gray-700 mt-2 mb-1">Key Responsibilities</p>
                       <ul className="text-sm list-disc pl-4 space-y-1">
                         {exp.responsibilities.map((res, i) => (
@@ -101,7 +101,7 @@ function ProfilePage() {
                 <div className="flex flex-col">
                   {profile.projects.map((project, index) => (
                     <div key={index} className="flex flex-col">
-                      <p className="text-lg font-semibold text-gray-700">{project.title}</p>
+                      <p className="text-lg font-semibold text-gray-700">{project.name}</p>
                       <p className="font-normal text-sm text-gray-700 mb-1 pl-2">{project.description}</p>
                     </div>
                   ))}
