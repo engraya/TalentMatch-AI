@@ -75,6 +75,23 @@ dc TalentMatchAI
 npm install   # or yarn install
 ```
 
+**Project Structure**
+
+```bash
+TalentMatchAI/
+│-- public/          # Static assets
+│-- src/
+│   ├── components/  # Reusable UI components
+│   ├── app/       # Application pages
+│   ├── store/       # Zustand store for state management
+│   ├── data/       # Custom data
+│   ├── config/     # Configuration files (utils, API calls, etc.)
+│   ├── lib/        # Configuration files (fucntions.)
+│-- styles/         # Global styles (Tailwind CSS)
+│-- package.json     # Project dependencies
+│-- README.md        # Project documentation
+```
+
 
 **Running the Project**
 
