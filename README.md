@@ -1,36 +1,110 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+## <a name="tech-stack">TalentMatchAI</a>
 
-## Getting Started
+TalentMatchAI is an AI-powered job matching platform that helps job seekers find the most relevant job opportunities based on their skills, experience, and preferences. Leveraging advanced semantic search and machine learning, it ensures a smarter and more efficient job search process..
 
-First, run the development server:
+## 📋 <a name="table">Table of Contents</a>
+
+1. ⚙️ [Tech Stack](#tech-stack)
+2. 🔋 [Setuo](#features)
+3. 🤸 [Usage](#quick-start)
+4. 🚀 [Deployment](#more)
+5. 👉 [Contributing](#more)
+6. 👉 [License](#more)
+
+
+## <a name="tech-stack">⚙️ Tech Stack</a>
+
+- Next.js - React framework for server-side rendering, static site generation, and routing.
+- TypeScript - A superset of JavaScript that adds static typing.
+- Tailwind CSS - Utility-first CSS framework for rapidly building custom designs.
+- Zustand - State Management.
+
+
+## <a name="features">🔋 Features</a>
+
+👉 **🔍 AI-Powered Job Matching**: Get job recommendations based on your skills and preferences..
+
+👉 **🎯 Match Score Calculation**: View how well you match a job with a real-time match percentage..
+
+👉 **Customizable Templates**: Choose from a variety of pre-built templates to personalize the content.
+
+👉 **💾 Saved Jobs **:  Save jobs to apply later.
+
+👉 **📝 Easy Applications **: Apply for jobs directly through the platform..
+
+👉 **Dashboard**: Gain insights at a glance with a dynamic dashboard that showcases applied jobs, recent applications, and a job listings.
+
+
+and many more, including the latest **React**, **Next.js** and **Zustand** features alongside code architecture and
+reusability
+
+## <a name="quick-start">🤸 Quick Start</a>
+
+Follow these steps to set up the project locally on your machine.
+
+**Prerequisites**
+
+Make sure you have the following installed on your machine:
+
+- [Git](https://git-scm.com/)
+- [Node.js](https://nodejs.org/en)
+- [npm](https://www.npmjs.com/) (Node Package Manager)
+
+  
+**Cloning the Repository**
+
+```bash
+git clone https://github.com/engraya/TalentMatch-AI
+cd talentMatch_AI
+```
+
+**Installation**
+
+Install the project dependencies using npm:
+
+```bash
+# Clone the repository
+git clone https://github.com/yourusername/TalentMatchAI.git
+
+# Navigate into the project
+dc TalentMatchAI
+
+# Install dependencies
+npm install   # or yarn install
+```
+
+
+**Running the Project**
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000) in your browser to view the project.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- Clone & Run - Clone or fork in to your dev environemnt.
+- Build Your Profile - Add skills, experience, and preferences.
+- Search & Apply - Use AI-powered job recommendations and apply instantly.
+- Track Applications - Monitor application status and match scores on the dashboard.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
 
-## Learn More
+**Deployment**
+You can deploy TalentMatch_AI on platforms like Vercel or Heroku.
 
-To learn more about Next.js, take a look at the following resources:
+Vercel Deployment
+Push the project to a GitHub repository.
+Connect your GitHub repo to Vercel.
+Set up the environment variables in Vercel's dashboard for production.
+Deploy the app to Vercel.
+Vercel will automatically build and deploy the app whenever changes are pushed to your main branch.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+**Contributing**
+We welcome contributions to TalentMatch_AI! If you'd like to contribute:
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Fork the repository.
+Create a new branch (git checkout -b feature/your-feature).
+Make your changes.
+Commit your changes (git commit -am 'Add new feature').
+Push to the branch (git push origin feature/your-feature).
+Open a pull request.
