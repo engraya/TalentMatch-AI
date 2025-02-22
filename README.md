@@ -1,15 +1,16 @@
-## <a name="tech-stack">TalentMatchAI</a>
+## <a name="core">TalentMatchAI</a>
 
 TalentMatchAI is an AI-powered job matching platform that helps job seekers find the most relevant job opportunities based on their skills, experience, and preferences. Leveraging advanced semantic search and machine learning, it ensures a smarter and more efficient job search process..
 
 ## 📋 <a name="table">Table of Contents</a>
 
-1. ⚙️ [Tech Stack](#tech-stack)
-2. 🔋 [Setup](#features)
-3. 🤸 [Usage](#quick-start)
-4. 🚀 [Deployment](#more)
-5. 👉 [Contributing](#more)
-6. 👉 [License](#more)
+1. ❤️‍🔥 [Table of Content](#table)
+2. ⚙️ [Tech Stack](#tech-stack)
+3. 🔋 [Features](#features)
+4. 🤸 [Quick Start](#quick-start)
+5. 🤸 [Usage](#usage)
+6. 🚀 [Deployment](#more)
+7. 👉 [Contributing](#more)
 
 
 ## <a name="tech-stack">⚙️ Tech Stack</a>
@@ -84,7 +85,7 @@ npm run dev
 Open [http://localhost:3000](http://localhost:3000) in your browser to view the project.
 
 
-**Usage**
+## <a name="usage">⚙️ Usage</a>
 
 - Clone & Run - Clone or fork in to your dev environemnt.
 - Build Your Profile - Add skills, experience, and preferences.
